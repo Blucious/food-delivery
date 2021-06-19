@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/radius_bg_white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/orderstate"
+                android:layout_width="280dp"
+                android:layout_height="35dp"
+                android:textSize="15dp"
+                android:textColor="#333333">
+
+            </TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="0.6dp"
+            android:alpha="0.5"
+            android:orientation="horizontal"
+            android:background="#555454">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/orderfoods"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#333333"
+                >
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/orderPrice"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#333333">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/ordernumber"
+                    android:layout_width="130dp"
+                    android:layout_marginBottom="5dp"
+
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="#393838">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="0.6dp"
+            android:alpha="0.5"
+            android:orientation="horizontal"
+            android:background="#555454">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="240dp"
+            android:layout_width="100dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/reorderbutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="再来一单"
+                android:textSize="15dp">
+
+            </Button>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

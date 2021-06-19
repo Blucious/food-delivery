@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F6F6F6">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/radius_bg_white">
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="餐品详情"
+                    android:textSize="20dp"
+                    >
+
+                </TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    app:layout_constraintTop_toBottomOf="parent"
+                    android:id="@+id/orderdetailfoodslist"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    />
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="30dp"
+                        android:text="商品小计"
+                        android:textSize="20dp">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/totalPrice"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:text="66元"
+                        android:textSize="20dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/radius_bg_white">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订单信息"
+                    android:textSize="20dp"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="订单号"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/serial_number"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10307960400001180"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="订单状态"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/state"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="配送中"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="收货人"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/receiver_name"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刘翔"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="收货手机"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/receiver_phone_number"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="122321312"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="收货地址"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/receiver_address"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="厦门理工学院"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="备注"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/remark"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="五十大"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="餐具"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tablewares"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="有"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="配送费"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/delivery_fee"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="有"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="配送时间"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/delivery_time"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2020/01/01"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="合计费用"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/totalCost"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="66"
+                        android:textSize="15dp"
+                        >
+
+                    </TextView>
+                </LinearLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

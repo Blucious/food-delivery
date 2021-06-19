@@ -13,23 +13,27 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.group9.fooddelivery.R;
+import org.group9.fooddelivery.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
-
+   private FragmentNotificationsBinding notificationsBinding;
    private NotificationsViewModel notificationsViewModel;
 
    public View onCreateView(@NonNull LayoutInflater inflater,
                             ViewGroup container, Bundle savedInstanceState) {
-      notificationsViewModel =
-         new ViewModelProvider(this).get(NotificationsViewModel.class);
-      View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-      final TextView textView = root.findViewById(R.id.text_notifications);
-      notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-         @Override
-         public void onChanged(@Nullable String s) {
-            textView.setText(s);
-         }
-      });
-      return root;
+      notificationsBinding = FragmentNotificationsBinding.inflate(getLayoutInflater());
+      View view = notificationsBinding.getRoot();
+      return view;
+//      notificationsViewModel =
+//         new ViewModelProvider(this).get(NotificationsViewModel.class);
+//      View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+//      final TextView textView = root.findViewById(R.id.text_notifications);
+//      notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//         @Override
+//         public void onChanged(@Nullable String s) {
+//            textView.setText(s);
+//         }
+//      });
+//      return root;
    }
 }

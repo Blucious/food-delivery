@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.address.add_address"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="收件人"
+                android:textSize="20dp">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/receivername"
+                android:layout_marginTop="5dp"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:textSize="20dp">
+
+
+            </EditText>
+            <ImageButton
+                android:layout_marginTop="5dp"
+
+                android:id="@+id/contactinput"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_contacts_24"
+                android:background="#00000000">
+
+            </ImageButton>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="手机号"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_height="45dp"
+                android:textSize="20dp">
+
+
+            </EditText>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="地址"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_height="45dp"
+                android:textSize="20dp">
+
+
+            </EditText>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="门牌号"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/outlineaddress"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_height="45dp"
+                android:textSize="20dp">
+
+
+            </EditText>
+
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:layout_marginLeft="140dp"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:textSize="25dp"
+            android:text="保存">
+
+        </Button>
+
+
+
+    </LinearLayout>
+</layout>

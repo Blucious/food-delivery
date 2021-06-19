@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <!-- 搜索相关 开始 -->
+        <LinearLayout
+            android:id="@+id/searchViewWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:iconifiedByDefault="false"
+                android:padding="6dp"
+                android:paddingHorizontal="12dp"
+                android:queryHint="搜索菜品，可全/首拼" />
+
+            <View style="@style/sep_h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <!-- 搜索相关 结束 -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="@drawable/radius_bg_white"
+            android:layout_gravity="center_vertical"
+            >
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:textColor="#202020"
+                    android:text="厦门理工学院"
+                    android:textSize="17dp"></TextView>
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="商家配送预计30分钟送达"
+                    android:textSize="10dp"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="120dp"
+                android:paddingRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="切换地址"
+                android:textColor="#202020"
+                android:textSize="15dp"></TextView>
+
+            <ImageButton
+                android:id="@+id/Myaddress"
+                android:layout_marginTop="20dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/switchaddress"
+                android:background="@drawable/radius_bg_orange"
+                >
+
+            </ImageButton>
+
+
+
+
+        </LinearLayout>
+
+        <!-- 分类列表 & 菜单信息 开始 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="#F6F6F6">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesicon"
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:paddingBottom="100dp"
+                android:clipToPadding="false"/>
+
+<!--            <View style="@style/sep_v" -->
+<!--                />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:paddingBottom="100dp"
+                android:clipToPadding="false"/>
+
+        </LinearLayout>
+        <!-- 分类列表 & 菜单信息 结束 -->
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="23dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:flow_verticalBias="0.5"
+            android:alpha="0.9"
+            android:orientation="horizontal"
+            android:background="@drawable/radius_cartbg_grey">
+            <TextView
+                android:paddingTop="16dp"
+                android:paddingLeft="20dp"
+                android:id="@+id/ShopingCartPrice"
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:text="0元"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/white">
+
+            </TextView>
+            <TextView
+                android:paddingLeft="78dp"
+                android:paddingTop="16dp"
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="去结算"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/done"
+                android:layout_marginLeft="10dp"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:src="@drawable/done"
+                android:textColor="@color/black"
+                android:background="@drawable/radius_bg_orange">
+
+            </ImageButton>
+
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

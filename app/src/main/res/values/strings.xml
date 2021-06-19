@@ -1,6 +1,17 @@
 <resources>
-  <string name="app_name">food-delivery</string>
-  <string name="title_home">Home</string>
-  <string name="title_dashboard">Dashboard</string>
-  <string name="title_notifications">Notifications</string>
+    <string name="app_name">food-delivery</string>
+    <string name="title_home">Home</string>
+    <string name="orderstate">已完成</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="Price">66</string>
+    <string name="orderPrice">合计:66元</string>
+    <string name="ordernumber">合计:66件</string>
+    <string name="FoodName">双重牛肉汉堡包</string>
+    <string name="FoodName1">双重牛肉汉堡包1</string>
+    <string name="FoodName2">双重牛肉汉堡包2</string>
+    <string name="address">厦门市集美区飒大大手动</string>
+    <string name="addressoutline">厦门理工学院</string>
+    <string name="receivername">xxxx先生</string>
+    <string name="phone">122122131</string>
 </resources>

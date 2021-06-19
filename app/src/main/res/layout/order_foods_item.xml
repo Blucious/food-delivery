@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF">
+        <ImageButton
+
+            android:id="@+id/FoodDetail"
+            android:layout_width="130dp"
+            android:layout_height="112dp"
+            android:scaleType="fitStart"
+            android:background="#ffffff">
+
+        </ImageButton>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/FoodName"
+                android:textColor="#272727"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                >
+
+            </TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/deduce"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/deduce"
+                    android:background="@drawable/radius_bg_orange"
+                    >
+
+                </ImageButton>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/number"
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="1"></TextView>
+
+                <ImageButton
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/plus"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/plus"
+                    android:background="@drawable/radius_bg_orange"
+                    >
+
+                </ImageButton>
+
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/price"
+                    android:textColor="#272727"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:textColor="#272727"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:text="元"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
