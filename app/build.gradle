@@ -46,8 +46,7 @@ dependencies {
     // Network
     // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.1'
-    // https://mvnrepository.com/artifact/com.github.franmontiel/PersistentCookieJar
-    implementation group: 'com.github.franmontiel', name: 'PersistentCookieJar', version: '1.0.1'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     // /Network
 
     // Guava
