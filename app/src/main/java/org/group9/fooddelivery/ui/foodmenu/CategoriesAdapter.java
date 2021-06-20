@@ -1,4 +1,4 @@
-package org.group9.fooddelivery.ui.menu;
+package org.group9.fooddelivery.ui.foodmenu;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.databinding.CategoriesListItemBinding;
+import org.group9.fooddelivery.databinding.ListItemCategoryBinding;
 
 import java.util.List;
 import java.util.Map;
+
 
 public class CategoriesAdapter
    extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
@@ -22,40 +22,37 @@ public class CategoriesAdapter
    private final Activity activity;
    private final LayoutInflater layoutInflater;
 
-
    /**
     * 保存外部传入的监听器
     */
    private ViewOnClickListener listener;
-   private List<Map<String,Object>> Categories;
+   private List<Map<String, Object>> categories;
 
 
-   public CategoriesAdapter(Activity activity, List<Map<String,Object>> Categories
-                            ) {
+   public CategoriesAdapter(Activity activity, List<Map<String, Object>> categories) {
       this.activity = activity;
       layoutInflater = activity.getLayoutInflater();
-      this.Categories=Categories;
+      this.categories = categories;
    }
 
 
    @NonNull
    @Override
    public CategoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      CategoriesListItemBinding bd = DataBindingUtil.inflate(layoutInflater,
-              R.layout.categories_list_item, parent, false);
+      ListItemCategoryBinding bd = DataBindingUtil.inflate(layoutInflater,
+         R.layout.list_item_category, parent, false);
       return new CategoriesViewHolder(bd);
    }
 
    @Override
    public int getItemCount() {
-      return Categories.size();
+      return categories.size();
    }
-
 
 
    @Override
    public void onBindViewHolder(@NonNull CategoriesViewHolder holder, int position) {
-      holder.bd.CategoriesButton.setImageResource((Integer) Categories.get(position).get("CategortIcon"));
+      holder.bd.CategoriesButton.setImageResource((Integer) categories.get(position).get("CategortIcon"));
       holder.bd.getRoot().setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -67,9 +64,9 @@ public class CategoriesAdapter
    }
 
    public static class CategoriesViewHolder extends RecyclerView.ViewHolder {
-      private final CategoriesListItemBinding bd;
+      private final ListItemCategoryBinding bd;
 
-      public CategoriesViewHolder(CategoriesListItemBinding bd) {
+      public CategoriesViewHolder(ListItemCategoryBinding bd) {
          super(bd.getRoot());
          this.bd = bd;
       }

@@ -2,7 +2,6 @@ package org.group9.fooddelivery.ui.address;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.databinding.AddressListItemBinding;
-import org.group9.fooddelivery.databinding.CategoriesListItemBinding;
+import org.group9.fooddelivery.databinding.ListItemAddressBinding;
 
 import java.util.List;
 import java.util.Map;
@@ -29,22 +27,22 @@ public class AddressAdapter
     * 保存外部传入的监听器
     */
 //   private ViewOnClickListener listener;
-   private List<Map<String,Object>> address;
+   private List<Map<String, Object>> address;
 
 
-   public AddressAdapter(Activity activity, List<Map<String,Object>> address
-                            ) {
+   public AddressAdapter(Activity activity, List<Map<String, Object>> address
+   ) {
       this.activity = activity;
       layoutInflater = activity.getLayoutInflater();
-      this.address=address;
+      this.address = address;
    }
 
 
    @NonNull
    @Override
    public AddressViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      AddressListItemBinding bd = DataBindingUtil.inflate(layoutInflater,
-              R.layout.address_list_item, parent, false);
+      ListItemAddressBinding bd = DataBindingUtil.inflate(layoutInflater,
+         R.layout.list_item_address, parent, false);
       return new AddressViewHolder(bd);
    }
 
@@ -52,7 +50,6 @@ public class AddressAdapter
    public int getItemCount() {
       return address.size();
    }
-
 
 
    @Override
@@ -64,12 +61,12 @@ public class AddressAdapter
       holder.bd.editaddress.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-            Intent intent =  new Intent(activity,updateaddress.class);
+            Intent intent = new Intent(activity, AddressUpdatingActivity.class);
 
-            intent.putExtra("address",(Integer) address.get(position).get("address"));
-            intent.putExtra("addressoutline",(Integer) address.get(position).get("addressoutline"));
-            intent.putExtra("phone",(Integer) address.get(position).get("phone"));
-            intent.putExtra("receivername",(Integer) address.get(position).get("receivername"));
+            intent.putExtra("address", (Integer) address.get(position).get("address"));
+            intent.putExtra("addressoutline", (Integer) address.get(position).get("addressoutline"));
+            intent.putExtra("phone", (Integer) address.get(position).get("phone"));
+            intent.putExtra("receivername", (Integer) address.get(position).get("receivername"));
             activity.startActivity(intent);
          }
       });
@@ -77,9 +74,9 @@ public class AddressAdapter
    }
 
    public static class AddressViewHolder extends RecyclerView.ViewHolder {
-      private final AddressListItemBinding bd;
+      private final ListItemAddressBinding bd;
 
-      public AddressViewHolder(AddressListItemBinding bd) {
+      public AddressViewHolder(ListItemAddressBinding bd) {
          super(bd.getRoot());
          this.bd = bd;
       }

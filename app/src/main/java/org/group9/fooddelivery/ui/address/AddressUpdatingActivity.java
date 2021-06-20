@@ -14,32 +14,40 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.databinding.ActivityAddAddressBinding;
+import org.group9.fooddelivery.databinding.ActivityUpdateAddressBinding;
 
-public class add_address extends AppCompatActivity {
-    private ActivityAddAddressBinding addAddressBinding;
+public class AddressUpdatingActivity extends AppCompatActivity {
+    private ActivityUpdateAddressBinding updateAddressBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addAddressBinding = ActivityAddAddressBinding.inflate(getLayoutInflater());
-        View view =addAddressBinding.getRoot();
+        updateAddressBinding = ActivityUpdateAddressBinding.inflate(getLayoutInflater());
+        View view = updateAddressBinding.getRoot();
         setContentView(view);
         init();
-        setTitle("添加地址");
+
+        setTitle("修改地址");
 
     }
-
-
     public void init(){
-        addAddressBinding.contactinput.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        int address = intent.getIntExtra("address",0);
+        int addressoutline = intent.getIntExtra("addressoutline",0);
+        int phone = intent.getIntExtra("phone",0);
+        int receivername = intent.getIntExtra("receivername",0);
+
+        updateAddressBinding.address.setText(address);
+        updateAddressBinding.outlineaddress.setText(addressoutline);
+        updateAddressBinding.phone.setText(phone);
+        updateAddressBinding.receivername.setText(receivername);
+
+
+        updateAddressBinding.contactinput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ContextCompat.checkSelfPermission(add_address.this, Manifest.permission.READ_CONTACTS)!= PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(add_address.this,new String[]{Manifest.permission.READ_CONTACTS},1);
+                if(ContextCompat.checkSelfPermission(AddressUpdatingActivity.this, Manifest.permission.READ_CONTACTS)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(AddressUpdatingActivity.this,new String[]{Manifest.permission.READ_CONTACTS},1);
                     Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                     startActivityForResult(intent, 1);
                 }else {
@@ -62,23 +70,20 @@ public class add_address extends AppCompatActivity {
             Uri contactData = data.getData();
             Cursor c = getContentResolver().query(contactData, null, null, null, null);
             if (c.moveToFirst()) {
-                 name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
+                name = c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
                 boolean hasphone = (c.getColumnIndexOrThrow(ContactsContract.Contacts.HAS_PHONE_NUMBER)>0);
                 if(hasphone){
                     Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME +" = ?",new String[]{name},null);
                     if (cursor.moveToFirst()){
-                         phone = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                        phone = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         Log.d("TAG", "onActivityResult: "+phone);
 
                     }
-                    c.close();
-                    cursor.close();
                 }
             }
         }
-        addAddressBinding.receivername.setText(name);
-        addAddressBinding.phone.setText(phone);
-
+        updateAddressBinding.receivername.setText(name);
+        updateAddressBinding.phone.setText(phone);
 
     }
 
