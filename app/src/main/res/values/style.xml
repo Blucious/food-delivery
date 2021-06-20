@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="smallButton" parent="android:Widget.Button.Small">
+    <item name="android:minHeight">0dp</item>
+    <item name="android:minWidth">0dp</item>
+  </style>
+
+  <style name="commonMenu">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+</resources>

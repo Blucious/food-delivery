@@ -12,6 +12,7 @@ public class ApiContants {
    public static final String api_user_register = "/api/user/register";
    public static final String api_user_login = "/api/user/login";
    public static final String api_user_logout = "/api/user/logout";
+   public static final String api_user_getCurrentUser = "/api/user/getCurrentUser";
    public static final String api_user_isEmailExists = "/api/user/isEmailExists";
    public static final String api_user_changeProfile = "/api/user/changeProfile";
    public static final String api_user_changePasswordByCurrentPassword = "/api/user/changePasswordByCurrentPassword";
@@ -46,9 +47,9 @@ public class ApiContants {
    public static final String api_order_listOrderItemsById = "/api/order/listOrderItemsById";
 
    /**
-    * 将路径与服务器url进行拼接，得到完整的路径
+    * 将服务器地址与api路径与进行拼接，得到完整的api路径
     */
-   public static String concatPath(String path) {
+   public static String apiUrl(String path) {
       return Paths.get(server_url, path).toString();
    }
 

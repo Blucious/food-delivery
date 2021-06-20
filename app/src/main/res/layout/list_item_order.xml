@@ -15,128 +15,120 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
+  <data>
 
-    </data>
+  </data>
+
+  <LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/radius_bg_white"
+    android:orientation="vertical">
 
     <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
 
-        android:layout_marginBottom="20dp"
+      <TextView
+        android:id="@+id/orderstate"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:textSize="15dp">
+
+      </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0.6dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:layout_marginBottom="10dp"
+      android:alpha="0.5"
+      android:background="#555454"
+      android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <TextView
+        android:id="@+id/orderfoods"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="#333333"
+        android:textSize="15dp">
+
+      </TextView>
+
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/radius_bg_white">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:orientation="vertical">
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/orderstate"
-                android:layout_width="280dp"
-                android:layout_height="35dp"
-                android:textSize="15dp"
-                android:textColor="#333333">
+        <TextView
+          android:id="@+id/orderPrice"
+          android:layout_width="130dp"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="5dp"
+          android:textColor="#333333"
+          android:textSize="15dp"
+          android:textStyle="bold">
 
-            </TextView>
+        </TextView>
 
+        <TextView
+          android:id="@+id/ordernumber"
+          android:layout_width="130dp"
+          android:layout_height="wrap_content"
 
+          android:layout_marginBottom="5dp"
+          android:textColor="#393838"
+          android:textSize="15dp">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_height="0.6dp"
-            android:alpha="0.5"
-            android:orientation="horizontal"
-            android:background="#555454">
+        </TextView>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_marginBottom="3dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/orderfoods"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="#333333"
-                >
-
-            </TextView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/orderPrice"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#333333">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/ordernumber"
-                    android:layout_width="130dp"
-                    android:layout_marginBottom="5dp"
-
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:textColor="#393838">
-
-                </TextView>
-
-            </LinearLayout>
-
-
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_height="0.6dp"
-            android:alpha="0.5"
-            android:orientation="horizontal"
-            android:background="#555454">
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_marginLeft="240dp"
-            android:layout_width="100dp"
-            android:layout_marginBottom="20dp"
-            android:layout_height="45dp"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/reorderbutton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="再来一单"
-                android:textSize="15dp">
-
-            </Button>
-
-
-
-        </LinearLayout>
+      </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0.6dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:layout_marginBottom="10dp"
+      android:alpha="0.5"
+      android:background="#555454"
+      android:orientation="horizontal"/>
+
+    <LinearLayout
+      android:layout_width="100dp"
+      android:layout_height="45dp"
+      android:layout_marginLeft="240dp"
+      android:layout_marginBottom="20dp"
+      android:orientation="horizontal">
+
+      <Button
+        android:id="@+id/reorderbutton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="再来一单"
+        android:textSize="15dp">
+
+      </Button>
+
+
+    </LinearLayout>
+  </LinearLayout>
 
 </layout>

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="userDto"
+      type="org.group9.fooddelivery.entity.UserAuthDTO" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,89 +18,93 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.login.ui.login.LoginActivity">
-    <ImageButton
-        android:layout_marginTop="4dp"
+    tools:context=".ui.user.LoginActivity">
 
-        app:layout_constraintTop_toTopOf="@id/username"
-        app:layout_constraintEnd_toStartOf="@id/username"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/email"
-        android:background="#00000000">
+    <ImageButton
+      android:layout_width="35dp"
+
+      android:layout_height="35dp"
+      android:layout_marginTop="4dp"
+      android:background="#00000000"
+      android:src="@drawable/email"
+      app:layout_constraintEnd_toStartOf="@id/emailTextView"
+      app:layout_constraintTop_toTopOf="@id/emailTextView">
 
     </ImageButton>
+
     <EditText
-        android:id="@+id/username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints="@string/prompt_email"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      android:id="@+id/emailTextView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="50dp"
+      android:layout_marginTop="96dp"
+      android:layout_marginEnd="24dp"
+      android:hint="邮箱"
+      android:inputType="textEmailAddress"
+      android:selectAllOnFocus="true"
+      android:text="@={userDto.email}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
-        android:layout_marginTop="4dp"
-        app:layout_constraintTop_toTopOf="@id/password"
-        app:layout_constraintEnd_toStartOf="@id/password"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/lock"
-        android:background="#00000000">
+      android:layout_width="35dp"
+      android:layout_height="35dp"
+      android:layout_marginTop="4dp"
+      android:background="#00000000"
+      android:src="@drawable/lock"
+      app:layout_constraintEnd_toStartOf="@id/passwordTextView"
+      app:layout_constraintTop_toTopOf="@id/passwordTextView">
 
     </ImageButton>
+
     <EditText
-        android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints="@string/prompt_password"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+      android:id="@+id/passwordTextView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="50dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="24dp"
+      android:hint="密码"
+      android:imeOptions="actionDone"
+      android:inputType="textPassword"
+      android:selectAllOnFocus="true"
+      android:text="@={userDto.password}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
     <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:enabled="false"
-        android:text="登录"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+      android:id="@+id/loginButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="48dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="48dp"
+      android:layout_marginBottom="64dp"
+      android:background="@drawable/pill_bg_orange"
+      android:text="登录"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
+      app:layout_constraintVertical_bias="0.12" />
 
     <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+      android:id="@+id/loading"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="64dp"
+      android:layout_marginEnd="32dp"
+      android:layout_marginBottom="64dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/passwordTextView"
+      app:layout_constraintStart_toStartOf="@+id/passwordTextView"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.3" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
