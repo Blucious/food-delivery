@@ -75,7 +75,7 @@ public class LoginActivity extends NavigableAppCompatActivity {
             public boolean handle200(@Nonnull Result result) {
                runOnUiThread(() -> {
                   // 设置VO
-                  UserVO userVo = ((JSONObject) result.getData()).toJavaObject(UserVO.class);
+                  UserVO userVo =  ((JSONObject) result.getData()).toJavaObject(UserVO.class);
                   getAppCtx().setUserVO(userVo);
 
                   // 退出当前Activity

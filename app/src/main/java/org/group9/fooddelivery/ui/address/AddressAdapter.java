@@ -2,6 +2,7 @@ package org.group9.fooddelivery.ui.address;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,8 @@ public class AddressAdapter
    }
 
 
+
+
    @NonNull
    @Override
    public AddressViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -54,24 +57,29 @@ public class AddressAdapter
 
    @Override
    public void onBindViewHolder(@NonNull AddressViewHolder holder, int position) {
-      holder.bd.address.setText((Integer) address.get(position).get("address"));
-      holder.bd.addressoutline.setText((Integer) address.get(position).get("addressoutline"));
-      holder.bd.phone.setText((Integer) address.get(position).get("phone"));
-      holder.bd.receivername.setText((Integer) address.get(position).get("receivername"));
+      Log.d("adapter", "onBindViewHolder: "+(String)address.get(position).get("address"));
+      Integer id = (Integer) address.get(position).get("id");
+      holder.bd.address.setText((String)address.get(position).get("address"));
+      holder.bd.tag.setText((String)address.get(position).get("tag"));
+//      holder.bd.addressoutline.setText((String) address.get(position).get("addressoutline"));
+      holder.bd.phone.setText((String) address.get(position).get("phone"));
+      holder.bd.receivername.setText((String) address.get(position).get("receivername"));
       holder.bd.editaddress.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
             Intent intent = new Intent(activity, AddressUpdatingActivity.class);
 
-            intent.putExtra("address", (Integer) address.get(position).get("address"));
-            intent.putExtra("addressoutline", (Integer) address.get(position).get("addressoutline"));
-            intent.putExtra("phone", (Integer) address.get(position).get("phone"));
-            intent.putExtra("receivername", (Integer) address.get(position).get("receivername"));
-            activity.startActivity(intent);
+            intent.putExtra("address", (String) address.get(position).get("address"));
+            intent.putExtra("id", id);
+            intent.putExtra("tag", (String) address.get(position).get("tag"));
+            intent.putExtra("phone", (String) address.get(position).get("phone"));
+            intent.putExtra("receivername", (String) address.get(position).get("receivername"));
+            activity.startActivityForResult(intent,1);
          }
       });
 
    }
+
 
    public static class AddressViewHolder extends RecyclerView.ViewHolder {
       private final ListItemAddressBinding bd;

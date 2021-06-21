@@ -21,7 +21,7 @@ public class ApiContants {
    public static final String api_deliveryAddress_save = "/api/deliveryAddress/save";
    public static final String api_deliveryAddress_deleteById = "/api/deliveryAddress/deleteById";
    public static final String api_deliveryAddress_updateById = "/api/deliveryAddress/updateById";
-   public static final String api_deliveryAddress_listByUserId = "/api/deliveryAddress/listByUserId";
+         public static final String api_deliveryAddress_listForCurrentUser = "/api/deliveryAddress/listForCurrentUser";
 
    // 产品类别相关
    public static final String api_productCategory_save = "/api/productCategory/save";

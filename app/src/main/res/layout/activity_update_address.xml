@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="address"
+            type="org.group9.fooddelivery.entity.DeliveryAddress" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.address.AddressAddingActivity"
+        tools:context=".ui.address.AddressUpdatingActivity"
         android:orientation="vertical">
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -32,6 +34,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="250dp"
                 android:layout_height="45dp"
+                android:text="@={address.receiverName}"
                 android:textSize="20dp">
 
 
@@ -69,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
+                android:text="@={address.receiverPhoneNumber}"
                 android:textSize="20dp">
 
 
@@ -95,43 +99,87 @@
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
+                android:text="@={address.receiverAddress}"
                 android:textSize="20dp">
 
 
             </EditText>
 
         </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="标签"
+            android:textSize="20dp">
+
+        </TextView>
+
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="门牌号"
-                android:textSize="20dp">
-
-            </TextView>
-
+            android:layout_height="155dp"
+            android:orientation="vertical">
             <EditText
-                android:id="@+id/outlineaddress"
+                android:id="@+id/tag"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
+                android:text="@={address.tag}"
                 android:textSize="20dp">
-
 
             </EditText>
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="90dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/company"
+                    android:text="公司"
+                    android:textSize="20dp">
+
+                </RadioButton>
+                <RadioButton
+                    android:layout_width="90dp"
+                    android:layout_height="24dp"
+                    android:text="学校"
+                    android:id="@+id/school"
+                    android:textSize="20dp">
+
+                </RadioButton>
+                <RadioButton
+                    android:layout_width="90dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/home"
+                    android:text="家"
+                    android:textSize="20dp">
+
+                </RadioButton>
+
+            </RadioGroup>
+
+
+
         </LinearLayout>
-
-
+    </LinearLayout>
 
 
         <Button
+            android:id="@+id/save"
             android:layout_marginLeft="140dp"
             android:layout_width="120dp"
             android:layout_height="55dp"
