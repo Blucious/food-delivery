@@ -10,7 +10,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+import org.group9.fooddelivery.ui.common.BaseAppCompatActivity;
+
+public class MainActivity extends BaseAppCompatActivity {
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
