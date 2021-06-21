@@ -9,160 +9,199 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      tools:context=".ui.address.AddressAddingActivity"
+      android:orientation="vertical"
+      android:background="#F6F6F6"
+      android:paddingLeft="20dp"
+      android:paddingRight="20dp"
+      android:paddingTop="20dp">
+
+  <LinearLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:paddingLeft="20dp"
+      android:paddingRight="20dp"
+      android:paddingTop="20dp"
+      android:layout_marginBottom="20dp"
+      android:background="@drawable/radius_bg_white"
       android:orientation="vertical">
+
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
       <TextView
-          android:layout_marginLeft="10dp"
-          android:layout_width="80dp"
-          android:layout_height="wrap_content"
+          android:id="@+id/username"
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="20dp"
+          android:textColor="#333333"
+          android:text="shewenffa"
+          android:textSize="20dp">
+
+      </TextView>
+      <TextView
+          android:id="@+id/points"
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="5dp"
+          android:textColor="#333333"
+          android:text="12"
+          android:textSize="20dp">
+
+      </TextView>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="10dp"
+          android:textColor="#333333"
+          android:text="积分"
+          android:textSize="20dp">
+
+      </TextView>
+
+    </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0.6dp"
+          android:layout_marginBottom="10dp"
+          android:alpha="0.5"
+          android:background="#555454"
+          android:orientation="horizontal"></LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:layout_width="90dp"
+          android:layout_height="35dp"
+          android:layout_marginRight="20dp"
+          android:textColor="#333333"
           android:text="昵称"
           android:textSize="20dp">
 
       </TextView>
-
-
-      <EditText
+      <TextView
           android:id="@+id/nick_name"
-          android:layout_marginTop="5dp"
-          android:layout_width="250dp"
-          android:layout_height="45dp"
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="5dp"
+          android:textColor="#333333"
+          android:text="12"
           android:textSize="20dp">
 
-
-      </EditText>
+      </TextView>
 
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
       <TextView
-          android:layout_marginLeft="10dp"
-          android:layout_width="80dp"
-          android:layout_height="wrap_content"
+          android:layout_width="90dp"
+          android:layout_height="35dp"
+          android:layout_marginRight="20dp"
+          android:textColor="#333333"
           android:text="手机号"
           android:textSize="20dp">
 
       </TextView>
-
-      <EditText
+      <TextView
           android:id="@+id/phone_number"
-          android:layout_marginTop="5dp"
-          android:layout_width="match_parent"
-          android:layout_marginRight="15dp"
-          android:layout_height="45dp"
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="5dp"
+          android:textColor="#333333"
+          android:text="12"
           android:textSize="20dp">
 
+      </TextView>
 
-      </EditText>
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
       <TextView
-          android:layout_marginLeft="10dp"
-          android:layout_width="80dp"
-          android:layout_height="wrap_content"
+          android:layout_width="90dp"
+          android:layout_height="35dp"
+          android:layout_marginRight="20dp"
+          android:textColor="#333333"
           android:text="邮箱"
           android:textSize="20dp">
 
       </TextView>
-
-      <EditText
+      <TextView
           android:id="@+id/email"
-          android:layout_marginTop="5dp"
-          android:layout_width="match_parent"
-          android:layout_marginRight="15dp"
-          android:layout_height="45dp"
-          android:textSize="20dp">
-
-
-      </EditText>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal">
-      <TextView
-          android:layout_marginLeft="10dp"
-          android:layout_width="80dp"
-          android:layout_marginRight="20dp"
-          android:layout_height="wrap_content"
-          android:text="用户积分"
+          android:layout_width="wrap_content"
+          android:layout_height="35dp"
+          android:layout_marginRight="5dp"
+          android:textColor="#333333"
+          android:text="12"
           android:textSize="20dp">
 
       </TextView>
 
-      <TextView
-          android:id="@+id/points"
-
-          android:layout_width="match_parent"
-          android:layout_marginRight="15dp"
-          android:layout_height="45dp"
-          android:textColor="#494848"
-          android:text="66积分"
-          android:textSize="20dp">
-
-
-      </TextView>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal">
-      <TextView
-          android:layout_marginLeft="10dp"
-          android:layout_width="80dp"
-          android:layout_marginRight="20dp"
-
-          android:layout_height="wrap_content"
-          android:text="帐户余额"
-          android:textSize="20dp">
-
-      </TextView>
-
-      <TextView
-          android:id="@+id/balance"
-          android:layout_width="match_parent"
-          android:layout_marginRight="15dp"
-          android:layout_height="45dp"
-          android:textColor="#494848"
-          android:text="0元"
-          android:textSize="20dp">
-
-
-      </TextView>
 
     </LinearLayout>
 
-
-
-
-    <Button
-        android:layout_marginLeft="140dp"
-        android:layout_width="120dp"
-        android:layout_height="55dp"
-        android:textSize="25dp"
-        android:text="保存">
-
-    </Button>
 
 
 
   </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_bg_white"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/updateinfobutton"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:text="修改个人资料"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="#333333"
+            >
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginBottom="20dp"
+            android:alpha="0.5"
+            android:background="#555454"
+            android:orientation="horizontal"></LinearLayout>
+
+        <TextView
+            android:id="@+id/addressbutton"
+            android:layout_marginBottom="20dp"
+            android:textSize="25dp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="管理收货地址">
+
+        </TextView>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
 
 </layout>
