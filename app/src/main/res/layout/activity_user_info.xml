@@ -5,14 +5,13 @@
 
     <data>
         <variable
-            name="address"
-            type="org.group9.fooddelivery.entity.DeliveryAddress" />
+            name="userInfo"
+            type="org.group9.fooddelivery.entity.User" />
     </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.address.AddressUpdatingActivity"
+        tools:context=".ui.user.UserInfo"
         android:orientation="vertical">
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -23,32 +22,22 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="收件人"
+                android:text="昵称"
                 android:textSize="20dp">
 
             </TextView>
 
 
             <EditText
-                android:id="@+id/receivername"
+                android:id="@+id/nick_name"
                 android:layout_marginTop="5dp"
                 android:layout_width="250dp"
+                android:text="@={userInfo.nickName}"
                 android:layout_height="45dp"
-                android:text="@={address.receiverName}"
                 android:textSize="20dp">
 
 
             </EditText>
-            <ImageButton
-                android:layout_marginTop="5dp"
-
-                android:id="@+id/contactinput"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_baseline_contacts_24"
-                android:background="#00000000">
-
-            </ImageButton>
 
 
         </LinearLayout>
@@ -62,17 +51,18 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="手机号"
+
                 android:textSize="20dp">
 
             </TextView>
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/phone_number"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
-                android:text="@={address.receiverPhoneNumber}"
+                android:text="@={userInfo.phoneNumber}"
                 android:textSize="20dp">
 
 
@@ -88,94 +78,84 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="地址"
+                android:text="邮箱"
                 android:textSize="20dp">
 
             </TextView>
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/email"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
-                android:text="@={address.receiverAddress}"
+                android:text="@={userInfo.email}"
                 android:textSize="20dp">
 
 
             </EditText>
 
         </LinearLayout>
-
-
-
-
-
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="155dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="标签"
-            android:textSize="20dp">
-
-        </TextView>
-
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="155dp"
-            android:orientation="vertical">
-            <EditText
-                android:id="@+id/tag"
-                android:layout_marginTop="5dp"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:text="用户积分"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/points"
+
                 android:layout_width="match_parent"
                 android:layout_marginRight="15dp"
                 android:layout_height="45dp"
-                android:text="@={address.tag}"
+                android:textColor="#494848"
+                android:text="@={userInfo.points}"
                 android:textSize="20dp">
 
-            </EditText>
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="90dp"
-                    android:layout_height="24dp"
-                    android:id="@+id/company"
-                    android:text="公司"
-                    android:textSize="20dp">
-
-                </RadioButton>
-                <RadioButton
-                    android:layout_width="90dp"
-                    android:layout_height="24dp"
-                    android:text="学校"
-                    android:id="@+id/school"
-                    android:textSize="20dp">
-
-                </RadioButton>
-                <RadioButton
-                    android:layout_width="90dp"
-                    android:layout_height="24dp"
-                    android:id="@+id/home"
-                    android:text="家"
-                    android:textSize="20dp">
-
-                </RadioButton>
-
-            </RadioGroup>
-
-
+            </TextView>
 
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_marginRight="20dp"
+
+                android:layout_height="wrap_content"
+                android:text="帐户余额"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/balance"
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_height="45dp"
+                android:textColor="#494848"
+                android:text=""
+                android:textSize="20dp">
+
+
+            </TextView>
+
+        </LinearLayout>
+
+
 
 
         <Button
@@ -191,4 +171,5 @@
 
 
     </LinearLayout>
+
 </layout>

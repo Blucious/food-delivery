@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 /**
  * API相关常量定义
  */
-public class ApiConstants {
+public class ApiContants {
    public static final String server_url = "http://10.0.2.2:8080";
 
    // 用户相关
@@ -45,6 +45,7 @@ public class ApiConstants {
    public static final String api_order_getOrderById = "/api/order/getOrderById";
    public static final String api_order_listForCurrentUser = "/api/order/listForCurrentUser";
    public static final String api_order_listOrderItemsById = "/api/order/listOrderItemsById";
+   public static final String api_order_OrderListItemById = "/api/order/OrderListItemById";
 
    /**
     * 将服务器地址与api路径与进行拼接，得到完整的api路径

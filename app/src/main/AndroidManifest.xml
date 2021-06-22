@@ -27,6 +27,7 @@
     <activity
       android:name=".ui.user.RegisterActivity"
       android:label="用户注册" />
+    <activity android:name=".ui.user.UserInfo"/>
     <activity
       android:name=".ui.foodmenu.FoodMenuActivity"
       android:label="点餐" />

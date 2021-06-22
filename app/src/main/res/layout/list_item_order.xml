@@ -75,18 +75,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="15dp"
+              android:text="总价"></TextView>
+          <TextView
+              android:id="@+id/orderPrice"
+              android:layout_width="130dp"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="5dp"
+              android:textColor="#333333"
+              android:textSize="15dp"
+              android:textStyle="bold">
 
-        <TextView
-          android:id="@+id/orderPrice"
-          android:layout_width="130dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="5dp"
-          android:textColor="#333333"
-          android:textSize="15dp"
-          android:textStyle="bold">
+          </TextView>
+        </LinearLayout>
 
-        </TextView>
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="15dp"
+              android:text="数量"></TextView>
         <TextView
           android:id="@+id/ordernumber"
           android:layout_width="130dp"
@@ -97,6 +115,7 @@
           android:textSize="15dp">
 
         </TextView>
+        </LinearLayout>
 
       </LinearLayout>
     </LinearLayout>

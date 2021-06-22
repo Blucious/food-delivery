@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.group9.fooddelivery.R;
 import org.group9.fooddelivery.databinding.ListItemOrderBinding;
-import org.group9.fooddelivery.ui.foodmenu.ProductsAdapter;
+import org.group9.fooddelivery.entity.Order;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class OrderAdapter
    /**
     * 保存外部传入的监听器
     */
-   private ProductsAdapter.ViewOnClickListener listener;
+   private ViewOnClickListener listener;
    private List<Map<String, Object>> orders;
 
 
@@ -55,19 +55,32 @@ public class OrderAdapter
 
    @Override
    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-      StringBuilder stringBuilder = new StringBuilder();
-      int[] foodsname = (int[]) orders.get(position).get("orderfoods");
-      for (Integer i : foodsname
-      ) {
-         stringBuilder.append(activity.getResources().getText(i));
-         stringBuilder.append("\n");
+      String state =null;
+      switch ((Integer) orders.get(position).get("orderstate")){
+         case Order.STATE_DELIVERED:
+            state ="已送达";
+            break;
+         case  Order.STATE_DELIVERING:
+            state ="正在配送";
+            break;
+         case Order.STATE_RECEIVED:
+            state ="已收货";
+            break;
+         case Order.STATE_CANCELED:
+            state="已取消";
+            break;
+
+
+
+
       }
 
 
-      holder.bd.orderstate.setText((Integer) orders.get(position).get("orderstate"));
-      holder.bd.orderfoods.setText(stringBuilder.toString());
-      holder.bd.orderPrice.setText((Integer) orders.get(position).get("orderPrice"));
-      holder.bd.ordernumber.setText((Integer) orders.get(position).get("ordernumber"));
+
+      holder.bd.orderstate.setText(state);
+      holder.bd.orderfoods.setText((String)orders.get(position).get("orderfoods"));
+      holder.bd.orderPrice.setText((String) orders.get(position).get("orderPrice"));
+      holder.bd.ordernumber.setText((String) orders.get(position).get("ordernumber"));
       holder.bd.reorderbutton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {

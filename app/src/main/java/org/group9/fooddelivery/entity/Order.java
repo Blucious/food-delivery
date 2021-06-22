@@ -43,6 +43,134 @@ public class Order {
       this.state = state;
    }
 
+   public Integer getId() {
+      return id;
+   }
+
+   public void setId(Integer id) {
+      this.id = id;
+   }
+
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   public void setSerialNumber(String serialNumber) {
+      this.serialNumber = serialNumber;
+   }
+
+   public Integer getUserId() {
+      return userId;
+   }
+
+   public void setUserId(Integer userId) {
+      this.userId = userId;
+   }
+
+   public static int getStateDelivering() {
+      return STATE_DELIVERING;
+   }
+
+   public static int getStateDelivered() {
+      return STATE_DELIVERED;
+   }
+
+   public static int getStateReceived() {
+      return STATE_RECEIVED;
+   }
+
+   public static int getStateCanceled() {
+      return STATE_CANCELED;
+   }
+
+   public Integer getState() {
+      return state;
+   }
+
+   public String getReceiverName() {
+      return receiverName;
+   }
+
+   public void setReceiverName(String receiverName) {
+      this.receiverName = receiverName;
+   }
+
+   public String getReceiverPhoneNumber() {
+      return receiverPhoneNumber;
+   }
+
+   public void setReceiverPhoneNumber(String receiverPhoneNumber) {
+      this.receiverPhoneNumber = receiverPhoneNumber;
+   }
+
+   public String getReceiverAddress() {
+      return receiverAddress;
+   }
+
+   public void setReceiverAddress(String receiverAddress) {
+      this.receiverAddress = receiverAddress;
+   }
+
+   public String getRemark() {
+      return remark;
+   }
+
+   public void setRemark(String remark) {
+      this.remark = remark;
+   }
+
+   public Integer getTablewares() {
+      return tablewares;
+   }
+
+   public void setTablewares(Integer tablewares) {
+      this.tablewares = tablewares;
+   }
+
+   public static BigDecimal getDefaultDeliveryFee() {
+      return DEFAULT_DELIVERY_FEE;
+   }
+
+   public BigDecimal getDeliveryFee() {
+      return deliveryFee;
+   }
+
+   public void setDeliveryFee(BigDecimal deliveryFee) {
+      this.deliveryFee = deliveryFee;
+   }
+
+   public BigDecimal getTotalPrice() {
+      return totalPrice;
+   }
+
+   public void setTotalPrice(BigDecimal totalPrice) {
+      this.totalPrice = totalPrice;
+   }
+
+   public Date getFinishTime() {
+      return finishTime;
+   }
+
+   public void setFinishTime(Date finishTime) {
+      this.finishTime = finishTime;
+   }
+
+   public Date getCreatedTime() {
+      return createdTime;
+   }
+
+   public void setCreatedTime(Date createdTime) {
+      this.createdTime = createdTime;
+   }
+
+   public Date getUpdatedTime() {
+      return updatedTime;
+   }
+
+   public void setUpdatedTime(Date updatedTime) {
+      this.updatedTime = updatedTime;
+   }
+
    public String getDisplayState() {
       if (state == null) {
          return "";
