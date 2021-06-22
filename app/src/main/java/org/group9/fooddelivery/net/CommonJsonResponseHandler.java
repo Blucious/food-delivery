@@ -49,7 +49,10 @@ public class CommonJsonResponseHandler
                   Intent intent = new Intent(activity, LoginActivity.class);
                   activity.startActivity(intent);
                })
-               .setNegativeButton("取消", (dialog, which) -> dialog.dismiss());
+               .setNegativeButton("取消", (dialog, which) -> {
+                  dialog.dismiss();
+                  activity.finish();
+               });
          } else {
             builder
                .setPositiveButton("确认", (dialog, which) -> {

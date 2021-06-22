@@ -6,6 +6,7 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 
+import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.UserVO;
 
 import java.util.concurrent.TimeUnit;
@@ -40,6 +41,7 @@ public class FoodDeliveryApplication extends Application {
     * 已登录用户的信息会保存于此
     */
    private UserVO userVO;
+   private DeliveryAddress deliveryAddress;
 
    private void initHttpClient() {
 
@@ -74,5 +76,14 @@ public class FoodDeliveryApplication extends Application {
     */
    public boolean isUserLogined() {
       return userVO != null;
+   }
+
+
+   public DeliveryAddress getDeliveryAddress() {
+      return deliveryAddress;
+   }
+
+   public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+      this.deliveryAddress = deliveryAddress;
    }
 }

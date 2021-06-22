@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.group9.fooddelivery.R;
 import org.group9.fooddelivery.databinding.ListItemAddressBinding;
+import org.group9.fooddelivery.entity.DeliveryAddress;
 
 import java.util.List;
 import java.util.Map;
@@ -24,22 +25,23 @@ public class AddressAdapter
    private final LayoutInflater layoutInflater;
 
 
-   /**
-    * 保存外部传入的监听器
-    */
-//   private ViewOnClickListener listener;
+   private OnAddressSelectedListener onAddressSelectedListener;
    private List<Map<String, Object>> address;
 
 
-   public AddressAdapter(Activity activity, List<Map<String, Object>> address
-   ) {
+   public AddressAdapter(Activity activity, List<Map<String, Object>> address) {
       this.activity = activity;
       layoutInflater = activity.getLayoutInflater();
       this.address = address;
    }
 
+   public OnAddressSelectedListener getOnAddressSelectedListener() {
+      return onAddressSelectedListener;
+   }
 
-
+   public void setOnAddressSelectedListener(OnAddressSelectedListener onAddressSelectedListener) {
+      this.onAddressSelectedListener = onAddressSelectedListener;
+   }
 
    @NonNull
    @Override
@@ -57,13 +59,20 @@ public class AddressAdapter
 
    @Override
    public void onBindViewHolder(@NonNull AddressViewHolder holder, int position) {
-      Log.d("adapter", "onBindViewHolder: "+(String)address.get(position).get("address"));
+      Log.d("adapter", "onBindViewHolder: " + (String) address.get(position).get("address"));
       Integer id = (Integer) address.get(position).get("id");
-      holder.bd.address.setText((String)address.get(position).get("address"));
-      holder.bd.tag.setText((String)address.get(position).get("tag"));
-//      holder.bd.addressoutline.setText((String) address.get(position).get("addressoutline"));
+      holder.bd.address.setText((String) address.get(position).get("address"));
+      holder.bd.tag.setText((String) address.get(position).get("tag"));
       holder.bd.phone.setText((String) address.get(position).get("phone"));
       holder.bd.receivername.setText((String) address.get(position).get("receivername"));
+
+      DeliveryAddress da = new DeliveryAddress();
+      da.setId(id);
+      da.setReceiverAddress((String) address.get(position).get("address"));
+      da.setReceiverPhoneNumber((String) address.get(position).get("phone"));
+      da.setReceiverName((String) address.get(position).get("receivername"));
+      da.setTag((String) address.get(position).get("tag"));
+
       holder.bd.editaddress.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -74,7 +83,17 @@ public class AddressAdapter
             intent.putExtra("tag", (String) address.get(position).get("tag"));
             intent.putExtra("phone", (String) address.get(position).get("phone"));
             intent.putExtra("receivername", (String) address.get(position).get("receivername"));
-            activity.startActivityForResult(intent,1);
+            activity.startActivityForResult(intent, 1);
+         }
+      });
+
+      holder.bd.getRoot().setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            final OnAddressSelectedListener listener = onAddressSelectedListener;
+            if (listener != null) {
+               listener.addressSelected(da);
+            }
          }
       });
 
@@ -90,11 +109,8 @@ public class AddressAdapter
       }
    }
 
-//   public interface ViewOnClickListener {
-//   }
-
-   public interface OperationDoneListener {
-      void onDone();
+   public interface OnAddressSelectedListener {
+      void addressSelected(DeliveryAddress deliveryAddress);
    }
 
 }

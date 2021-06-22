@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,19 +20,18 @@ import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityFoodMenuBinding;
 import org.group9.fooddelivery.entity.Cart;
 import org.group9.fooddelivery.entity.CartItem;
+import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.ProductCategory;
 import org.group9.fooddelivery.entity.ProductVO;
 import org.group9.fooddelivery.entity.Result;
 import org.group9.fooddelivery.net.CommonCallback;
 import org.group9.fooddelivery.net.CommonJsonResponseHandler;
+import org.group9.fooddelivery.ui.UiConstants;
 import org.group9.fooddelivery.ui.address.AddressListActivity;
 import org.group9.fooddelivery.ui.common.NavigableAppCompatActivity;
 import org.group9.fooddelivery.ui.order.OrderSettlementActivity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Nonnull;
 
@@ -53,6 +52,7 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
    private TextView deliveryFee;
 
    private Cart cart;
+   private List<ProductVO> products;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +61,19 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
       bd = DataBindingUtil.setContentView(
          this, R.layout.activity_food_menu);
 
+
       initView();
 
+      setListeners();
+
       updateDataAndViews();
+   }
+
+   @Override
+   protected void onStart() {
+      super.onStart();
+      updateCartDataAndView(false);
+      updateDeliveryAddressAndView();
    }
 
    public void initView() {
@@ -73,16 +83,6 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
       productsTotalPrice = findViewById(R.id.productsTotalPrice);
       deliveryFee = findViewById(R.id.deliveryFee);
 
-
-      bd.choiceAddressButton.setOnClickListener(v -> {
-         Intent intent = new Intent(FoodMenuActivity.this, AddressListActivity.class);
-         startActivity(intent);
-      });
-
-      settlingButton.setOnClickListener(v -> {
-         Intent intent = new Intent(FoodMenuActivity.this, OrderSettlementActivity.class);
-         startActivity(intent);
-      });
 
       // 类别列表初始化
       {
@@ -109,6 +109,21 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
          foodRecycleView.setAdapter(productsAdapter);
       }
    }
+
+
+   private void setListeners() {
+      bd.choiceAddressButton.setOnClickListener(v -> {
+         Intent intent = new Intent(FoodMenuActivity.this, AddressListActivity.class)
+            .putExtra(UiConstants.SELECTION_MODE, true);
+         startActivity(intent);
+      });
+
+      settlingButton.setOnClickListener(v -> {
+         Intent intent = new Intent(FoodMenuActivity.this, OrderSettlementActivity.class);
+         startActivity(intent);
+      });
+   }
+
 
    private void updateDataAndViews() {
       updateProductCategoriesDataAndView();
@@ -145,17 +160,17 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
          .build();
 
       CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(this) {
-         @SuppressLint("SetTextI18n")
          @Override
          public boolean handle200(@Nonnull Result result) {
             runOnUiThread(() -> {
                cart = ((JSONObject) result.getData()).toJavaObject(Cart.class);
 
-               productsTotalPrice.setText("" + cart.getProductsTotalPrice());
-               deliveryFee.setText("" + cart.getDeliveryFee());
+               updateCartView();
 
                if (cascadeToProducts) {
                   updateProductsDataAndView();
+               } else {
+                  updateProductsView();
                }
             });
             return true;
@@ -163,6 +178,14 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
       };
       new CommonCallback(this, responseHandler)
          .enqueueTo(getAppCtx().getHttpClient().newCall(req));
+   }
+
+   @SuppressLint("SetTextI18n")
+   private void updateCartView() {
+      productsTotalPrice.setText("" + cart.getProductsTotalPrice());
+      deliveryFee.setText("" + cart.getDeliveryFee());
+
+      updateSettlingButtonState();
    }
 
    private void updateProductsDataAndView() {
@@ -175,24 +198,62 @@ public class FoodMenuActivity extends NavigableAppCompatActivity {
          @Override
          public boolean handle200(@Nonnull Result result) {
             runOnUiThread(() -> {
-               List<ProductVO> products =
-                  ((JSONArray) result.getData()).toJavaList(ProductVO.class);
+               products = ((JSONArray) result.getData()).toJavaList(ProductVO.class);
 
-               for (ProductVO product : products) {
-                  CartItem cartItem = cart.getCartItem(product.getId());
-                  if (cartItem != null) {
-                     product.setQuantity(cartItem.getQuantity());
-                  } else {
-                     product.setQuantity(0);
-                  }
-               }
-
-               productsAdapter.setDataAndNotifyChanged(products);
+               updateProductsView();
             });
             return true;
          }
       };
       new CommonCallback(this, responseHandler)
          .enqueueTo(getAppCtx().getHttpClient().newCall(req));
+   }
+
+   private void updateDeliveryAddressAndView() {
+      DeliveryAddress deliveryAddress = getAppCtx().getDeliveryAddress();
+      if (deliveryAddress == null) {
+         bd.deliveryAddressName.setText("*请选择收货地址");
+      } else {
+         bd.deliveryAddressName.setText(deliveryAddress.getReceiverAddress());
+      }
+      updateSettlingButtonState();
+   }
+
+   private void updateSettlingButtonState() {
+      DeliveryAddress deliveryAddress = getAppCtx().getDeliveryAddress();
+
+      if (deliveryAddress != null
+         && cart != null && cart.size() != 0) {
+         settlingButton.setEnabled(true);
+         settlingButton.setTextColor(getColor(R.color.black));
+
+      } else {
+         settlingButton.setEnabled(false);
+         settlingButton.setTextColor(getColor(R.color.DarkGray));
+      }
+   }
+
+   private void updateProductsView() {
+      if (products == null) {
+         return;
+      }
+
+      if (cart != null) {
+         for (ProductVO product : products) {
+            CartItem cartItem = cart.getCartItem(product.getId());
+            if (cartItem != null) {
+               product.setQuantity(cartItem.getQuantity());
+            } else {
+               product.setQuantity(0);
+            }
+         }
+      }
+
+      productsAdapter.setDataAndNotifyChanged(products);
+   }
+
+   @Override
+   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
    }
 }

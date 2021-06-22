@@ -31,6 +31,7 @@ import org.group9.fooddelivery.entity.UserVO;
 import org.group9.fooddelivery.net.CommonCallback;
 import org.group9.fooddelivery.net.CommonJsonResponseHandler;
 import org.group9.fooddelivery.ui.common.BaseAppCompatActivity;
+import org.group9.fooddelivery.ui.common.NavigableAppCompatActivity;
 import org.group9.fooddelivery.ui.user.LoginActivity;
 import org.group9.fooddelivery.ui.user.RegisterActivity;
 
@@ -40,7 +41,7 @@ import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 
-public class AddressUpdatingActivity extends BaseAppCompatActivity {
+public class AddressUpdatingActivity extends NavigableAppCompatActivity {
     private ActivityUpdateAddressBinding updateAddressBinding;
 
     private Intent intent;

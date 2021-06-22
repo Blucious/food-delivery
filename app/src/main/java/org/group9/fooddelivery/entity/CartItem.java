@@ -55,7 +55,9 @@ public class CartItem {
 
       this.quantity = quantity;
       if (quantity == 0) {
-         ownerCart.removeCartItem(productId);
+         if (ownerCart != null) {
+            ownerCart.removeCartItem(productId);
+         }
       }
    }
 

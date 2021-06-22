@@ -1,102 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
+  <data>
 
-    </data>
+  </data>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="horizontal">
+
+    <ImageButton
+      android:id="@+id/foodPicture"
+      android:layout_width="130dp"
+      android:layout_height="112dp"
+      android:background="#ffffff"
+      android:scaleType="centerCrop" />
 
     <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginStart="8dp"
+
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/foodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:minWidth="30dp"
+        android:textColor="#272727"
+        android:textSize="17sp"
+        android:textStyle="bold">
+
+      </TextView>
+
+
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFF">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="right">
+
         <ImageButton
+          android:id="@+id/subOneButton"
+          android:layout_width="22dp"
+          android:layout_height="22dp"
+          android:background="@drawable/radius_bg_orange"
+          android:src="@drawable/ic_baseline_remove_24" />
 
-            android:id="@+id/foodDetail"
-            android:layout_width="130dp"
-            android:layout_height="112dp"
-            android:scaleType="fitStart"
-            android:background="#ffffff">
+        <TextView
+          android:id="@+id/quantity"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:paddingHorizontal="12dp"
+          android:text="0"
+          android:textSize="17sp" />
 
-        </ImageButton>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/foodName"
-                android:textColor="#272727"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                >
+        <ImageButton
+          android:id="@+id/addOneButton"
+          android:layout_width="22dp"
+          android:layout_height="22dp"
+          android:background="@drawable/radius_bg_orange"
+          android:src="@drawable/ic_baseline_add_24" />
 
-            </TextView>
+        <TextView
+          android:id="@+id/totalPrice"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:paddingHorizontal="12dp"
+          android:text="0"
+          android:textColor="@color/black"
+          android:textSize="17sp" />
 
+      </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/deduce"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/deduce"
-                    android:background="@drawable/radius_bg_orange"
-                    >
-
-                </ImageButton>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/number"
-                    android:layout_marginLeft="6dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:text="1"></TextView>
-
-                <ImageButton
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/plus"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/plus"
-                    android:background="@drawable/radius_bg_orange"
-                    >
-
-                </ImageButton>
-
-                <TextView
-                    android:layout_marginTop="6dp"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/price"
-                    android:textColor="#272727"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-                <TextView
-                    android:layout_marginTop="6dp"
-                    android:textColor="#272727"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:text="元"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
-
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
+  </LinearLayout>
 </layout>

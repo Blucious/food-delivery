@@ -1,7 +1,6 @@
 package org.group9.fooddelivery.ui.address;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,21 +10,17 @@ import android.util.Log;
 import android.view.View;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
 import org.group9.fooddelivery.R;
 import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityAddressListBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
-import org.group9.fooddelivery.entity.DeliveryAddressDTO;
 import org.group9.fooddelivery.entity.Result;
-import org.group9.fooddelivery.entity.UserVO;
 import org.group9.fooddelivery.net.CommonCallback;
 import org.group9.fooddelivery.net.CommonJsonResponseHandler;
+import org.group9.fooddelivery.ui.UiConstants;
 import org.group9.fooddelivery.ui.common.NavigableAppCompatActivity;
-import org.group9.fooddelivery.ui.user.LoginActivity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,20 +28,20 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
-import okhttp3.FormBody;
 import okhttp3.Request;
-import okhttp3.Response;
 
 public class AddressListActivity extends NavigableAppCompatActivity {
 
    private List<String> address = new ArrayList<>();
-   private  List<Integer> id=new ArrayList<>();
-   private  List<String> receivername=new ArrayList<>();
-   private  List<String> phone =new ArrayList<>();
-   private  List<String> tag =new ArrayList<>();
+   private List<Integer> id = new ArrayList<>();
+   private List<String> receivername = new ArrayList<>();
+   private List<String> phone = new ArrayList<>();
+   private List<String> tag = new ArrayList<>();
    private RecyclerView recyclerView;
    private AddressAdapter addressAdapter;
    private ActivityAddressListBinding addressListBinding;
+
+   private boolean isSelectionMode;
 
 
    @Override
@@ -56,20 +51,38 @@ public class AddressListActivity extends NavigableAppCompatActivity {
       View view = addressListBinding.getRoot();
       setContentView(view);
       setTitle("我的地址");
-      try {
-         init();
 
+      initProperties();
 
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
+      setListeners();
    }
 
-   public void init() throws IOException {
+   @Override
+   protected void onStart() {
+      super.onStart();
+      updateDeliveryAddressesDataAndView();
+   }
+
+   public void initProperties() {
+      isSelectionMode = getIntent().getBooleanExtra(UiConstants.SELECTION_MODE, false);
+   }
+
+   private void setListeners() {
+      addressListBinding.addaddressButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            Intent intent = new Intent(AddressListActivity.this, AddressAddingActivity.class);
+            startActivityForResult(intent, 1);
+         }
+      });
+   }
+
+   public void updateDeliveryAddressesDataAndView() {
 
       Request req = new Request.Builder()
-              .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_listForCurrentUser))
-              .build();
+         .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_listForCurrentUser))
+         .build();
+
       CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(AddressListActivity.this) {
          @Override
          public boolean handle200(@Nonnull Result result) {
@@ -87,53 +100,20 @@ public class AddressListActivity extends NavigableAppCompatActivity {
                   phone.add(deliveryAddresses.get(i).getReceiverPhoneNumber());
                   receivername.add(deliveryAddresses.get(i).getReceiverName());
                   tag.add(deliveryAddresses.get(i).getTag());
-//                  addressoutline.add(deliveryAddresses.get(i).getReceiverAddress().substring(0,4));
-
-                  Log.d("TAG", "handle200: "+deliveryAddresses.get(i).getReceiverName());
+                  Log.d("TAG", "handle200: " + deliveryAddresses.get(i).getReceiverName());
                }
-               initData();
-               Log.d("TAG", "handle200: "+address);
-//               finish();
+               updateDeliveryAddressesView();
+               Log.d("TAG", "handle200: " + address);
             });
             return true;
          }
       };
 
       new CommonCallback(AddressListActivity.this, responseHandler)
-              .enqueueTo(getAppCtx().getHttpClient().newCall(req));
-
-
-
-      addressListBinding.addaddressButton.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-            Intent intent = new Intent(AddressListActivity.this, AddressAddingActivity.class);
-            startActivityForResult(intent,1);
-         }
-      });
+         .enqueueTo(getAppCtx().getHttpClient().newCall(req));
    }
 
-   @Override
-   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-      super.onActivityResult(requestCode, resultCode, data);
-      switch (requestCode) {
-         case 1:
-            if ( resultCode ==1 ){
-               try {
-
-                  init();
-               } catch (IOException e) {
-                  e.printStackTrace();
-               }
-            }
-            //来自按钮1的请求，作相应业务处理
-         case 0:
-            //来自按钮2的请求，作相应业务处理
-      }
-
-   }
-
-   public void initData() {
+   public void updateDeliveryAddressesView() {
       Log.d("TAG", "initData:xxxxxx ");
       List<Map<String, Object>> addresdata = new ArrayList<>();
       for (int i = 0; i < address.size(); i++) {
@@ -148,13 +128,38 @@ public class AddressListActivity extends NavigableAppCompatActivity {
       }
 
 
-      Log.d("mapdata", "initData: "+address);
+      Log.d("mapdata", "initData: " + address);
       recyclerView = findViewById(R.id.addresslist);
       recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
       addressAdapter = new AddressAdapter(this, addresdata);
-      recyclerView.setAdapter(addressAdapter);
+      if (isSelectionMode) {
+         addressAdapter.setOnAddressSelectedListener(new AddressAdapter.OnAddressSelectedListener() {
+            @Override
+            public void addressSelected(DeliveryAddress deliveryAddress) {
+               getAppCtx().setDeliveryAddress(deliveryAddress);
+               finish();
+            }
+         });
+      }
 
+      recyclerView.setAdapter(addressAdapter);
+   }
+
+   @Override
+   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+      switch (requestCode) {
+         case 1:
+            if (resultCode == 1) {
+               updateDeliveryAddressesDataAndView();
+            }
+            //来自按钮1的请求，作相应业务处理
+            break;
+         case 0:
+            //来自按钮2的请求，作相应业务处理
+            break;
+      }
 
    }
 }

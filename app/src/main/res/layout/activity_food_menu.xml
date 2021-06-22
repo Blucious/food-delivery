@@ -60,6 +60,7 @@
           app:layout_constraintTop_toTopOf="parent">
 
           <TextView
+            android:id="@+id/deliveryAddressName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -95,8 +96,8 @@
 
           <ImageButton
             android:id="@+id/choiceAddressButton"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:background="@drawable/radius_bg_orange"
             android:src="@drawable/switchaddress"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -169,11 +170,11 @@
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
             android:gravity="bottom"
             android:text="￥"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_marginBottom="3dp"
             android:textStyle="bold" />
 
           <TextView

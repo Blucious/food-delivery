@@ -11,7 +11,6 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -22,7 +21,7 @@ import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.Result;
 import org.group9.fooddelivery.net.CommonCallback;
 import org.group9.fooddelivery.net.CommonJsonResponseHandler;
-import org.group9.fooddelivery.ui.common.BaseAppCompatActivity;
+import org.group9.fooddelivery.ui.common.NavigableAppCompatActivity;
 
 import javax.annotation.Nonnull;
 
@@ -30,7 +29,7 @@ import okhttp3.FormBody;
 import okhttp3.Request;
 
 
-public class AddressAddingActivity extends BaseAppCompatActivity {
+public class AddressAddingActivity extends NavigableAppCompatActivity {
    private ActivityAddressAddingBinding addAddressBinding;
 
    @Override
@@ -48,62 +47,61 @@ public class AddressAddingActivity extends BaseAppCompatActivity {
 
    public void init() {
       addAddressBinding.setAddress(new DeliveryAddress());
-      
-         addAddressBinding.company.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Log.d("TAG", "onClick: ---------");
-               addAddressBinding.tag.setText("公司");
-            }
-         });
 
-         addAddressBinding.home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               addAddressBinding.tag.setText("家");
-            }
-         });
-         addAddressBinding.school.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               addAddressBinding.tag.setText("学校");
-            }
-         });
+      addAddressBinding.company.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            Log.d("TAG", "onClick: ---------");
+            addAddressBinding.tag.setText("公司");
+         }
+      });
+
+      addAddressBinding.home.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            addAddressBinding.tag.setText("家");
+         }
+      });
+      addAddressBinding.school.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            addAddressBinding.tag.setText("学校");
+         }
+      });
 
       addAddressBinding.save.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
 
 
-
-         DeliveryAddress deliveryAddress = addAddressBinding.getAddress();
-            if(StringUtils.isEmpty(deliveryAddress.getReceiverName())){
+            DeliveryAddress deliveryAddress = addAddressBinding.getAddress();
+            if (StringUtils.isEmpty(deliveryAddress.getReceiverName())) {
                getToastHelper().showShort("请输入收件人");
                return;
             }
-            if(StringUtils.isEmpty(deliveryAddress.getReceiverPhoneNumber())){
+            if (StringUtils.isEmpty(deliveryAddress.getReceiverPhoneNumber())) {
                getToastHelper().showShort("请输入手机号");
                return;
             }
-            if(StringUtils.isEmpty(deliveryAddress.getTag())){
+            if (StringUtils.isEmpty(deliveryAddress.getTag())) {
                getToastHelper().showShort("请输入标签");
                return;
             }
-            if(StringUtils.isEmpty(deliveryAddress.getReceiverAddress())){
+            if (StringUtils.isEmpty(deliveryAddress.getReceiverAddress())) {
                getToastHelper().showShort("请输入地址");
                return;
             }
 
             FormBody body = new FormBody.Builder()
-                    .add("receiverName",deliveryAddress.getReceiverName())
-                    .add("receiverPhoneNumber",deliveryAddress.getReceiverPhoneNumber())
-                    .add("receiverAddress",deliveryAddress.getReceiverAddress())
-                    .add("tag",deliveryAddress.getTag())
-                    .build();
+               .add("receiverName", deliveryAddress.getReceiverName())
+               .add("receiverPhoneNumber", deliveryAddress.getReceiverPhoneNumber())
+               .add("receiverAddress", deliveryAddress.getReceiverAddress())
+               .add("tag", deliveryAddress.getTag())
+               .build();
             Request req = new Request.Builder()
-                    .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_save))
-                    .post(body)
-                    .build();
+               .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_save))
+               .post(body)
+               .build();
 
             CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(AddressAddingActivity.this) {
                @Override
@@ -113,24 +111,18 @@ public class AddressAddingActivity extends BaseAppCompatActivity {
 
                      // 退出当前Activity
                      getToastHelper().showLong("添加成功");
-                     setResult(1,new Intent().putExtra("hasadd",1));
+                     setResult(1, new Intent().putExtra("hasadd", 1));
                      finish();
                   });
                   return true;
                }
             };
             new CommonCallback(AddressAddingActivity.this, responseHandler)
-                    .enqueueTo(getAppCtx().getHttpClient().newCall(req));
-
-
-
-
+               .enqueueTo(getAppCtx().getHttpClient().newCall(req));
 
 
          }
       });
-
-
 
 
       addAddressBinding.contactinput.setOnClickListener(new View.OnClickListener() {

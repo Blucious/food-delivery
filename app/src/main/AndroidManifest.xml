@@ -27,12 +27,14 @@
     <activity
       android:name=".ui.user.RegisterActivity"
       android:label="用户注册" />
-    <activity android:name=".ui.user.UserInfo"/>
+    <activity android:name=".ui.user.UserInfo" />
     <activity
       android:name=".ui.foodmenu.FoodMenuActivity"
       android:label="点餐" />
     <activity android:name=".ui.order.OrderDetailActivity" />
-    <activity android:name=".ui.order.OrderSettlementActivity" />
+    <activity
+      android:name=".ui.order.OrderSettlementActivity"
+      android:label="外送确认" />
     <activity android:name=".ui.address.AddressUpdatingActivity" />
     <activity android:name=".ui.address.AddressAddingActivity" />
     <activity android:name=".ui.address.AddressListActivity" />
