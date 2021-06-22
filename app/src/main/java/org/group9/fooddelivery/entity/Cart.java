@@ -38,6 +38,13 @@ public class Cart {
       return cartItems.get(productId);
    }
 
+   public void setCartItems(List<CartItem> cartItems) {
+      clear();
+      for (CartItem cartItem : cartItems) {
+         addCartItem(cartItem);
+      }
+   }
+
    public List<CartItem> getCartItems() {
       return new ArrayList<>(cartItems.values());
    }

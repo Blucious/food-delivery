@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 /**
  * API相关常量定义
  */
-public class ApiContants {
+public class ApiConstants {
    public static final String server_url = "http://10.0.2.2:8080";
 
    // 用户相关
@@ -21,7 +21,7 @@ public class ApiContants {
    public static final String api_deliveryAddress_save = "/api/deliveryAddress/save";
    public static final String api_deliveryAddress_deleteById = "/api/deliveryAddress/deleteById";
    public static final String api_deliveryAddress_updateById = "/api/deliveryAddress/updateById";
-   public static final String api_deliveryAddress_listByUserId = "/api/deliveryAddress/listByUserId";
+   public static final String api_deliveryAddress_listForCurrentUser = "/api/deliveryAddress/listForCurrentUser";
 
    // 产品类别相关
    public static final String api_productCategory_save = "/api/productCategory/save";
@@ -50,6 +50,10 @@ public class ApiContants {
     * 将服务器地址与api路径与进行拼接，得到完整的api路径
     */
    public static String apiUrl(String path) {
+      return Paths.get(server_url, path).toString();
+   }
+
+   public static String resUrl(String path) {
       return Paths.get(server_url, path).toString();
    }
 

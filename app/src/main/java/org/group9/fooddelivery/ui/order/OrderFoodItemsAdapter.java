@@ -53,8 +53,8 @@ public class OrderFoodItemsAdapter
 
    @Override
    public void onBindViewHolder(@NonNull OrderFoodItemsViewHolder holder, int position) {
-      holder.bd.FoodDetail.setImageResource((Integer) Foods.get(position).get("FoodImg"));
-      holder.bd.FoodName.setText((Integer) Foods.get(position).get("FoodName"));
+      holder.bd.foodDetail.setImageResource((Integer) Foods.get(position).get("FoodImg"));
+      holder.bd.foodName.setText((Integer) Foods.get(position).get("FoodName"));
       holder.bd.price.setText((Integer) Foods.get(position).get("Price"));
       holder.bd.number.setText((Integer) Foods.get(position).get("number"));
 

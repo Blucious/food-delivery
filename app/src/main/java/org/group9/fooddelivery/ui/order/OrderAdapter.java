@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.group9.fooddelivery.R;
 import org.group9.fooddelivery.databinding.ListItemOrderBinding;
+import org.group9.fooddelivery.ui.foodmenu.ProductsAdapter;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class OrderAdapter
    /**
     * 保存外部传入的监听器
     */
-   private org.group9.fooddelivery.ui.foodmenu.FoodAdapter.ViewOnClickListener listener;
+   private ProductsAdapter.ViewOnClickListener listener;
    private List<Map<String, Object>> orders;
 
 

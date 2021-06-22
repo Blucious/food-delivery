@@ -1,5 +1,6 @@
 package org.group9.fooddelivery.net;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONException;
@@ -22,8 +23,11 @@ public class JsonResponseHandler {
    private static final String TAG = JsonResponseHandler.class.getSimpleName();
 
 
+   @SuppressLint("DefaultLocale")
    @SuppressWarnings("ConstantConditions")
    public final void handle(Response resp) throws IOException {
+      Log.d(TAG, String.format("JsonResponseHandler handle: url=%s code=%d",
+         resp.request().url(), resp.code()));
 
       // 获取响应体
       ResponseBody body = resp.body();
@@ -41,6 +45,8 @@ public class JsonResponseHandler {
          handleFatalServerError(resp);
          return;
       }
+      Log.d(TAG, String.format("JsonResponseHandler handle: url=%s body=%s",
+         resp.request().url(), jsonStr));
 
       // 根据不同的响应码，分发到不同的方法进行处理
       try {

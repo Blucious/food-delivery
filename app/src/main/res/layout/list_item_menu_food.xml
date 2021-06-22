@@ -13,73 +13,101 @@
      limitations under the License.
 -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+  <data>
 
-    </data>
+  </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFF">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="112dp"
+    android:background="#FFFFFF"
+    android:orientation="horizontal"
+    android:paddingHorizontal="5dp">
+
+    <!--产品图片-->
     <ImageButton
+      android:id="@+id/picture"
+      android:layout_width="120dp"
+      android:layout_height="102dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      android:background="#ffffff"
+      android:scaleType="centerCrop" />
+    <!--/产品图片-->
 
-        android:id="@+id/FoodDetail"
-        android:layout_width="130dp"
-        android:layout_height="112dp"
-        android:scaleType="fitStart"
-        android:background="#ffffff">
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:paddingStart="8dp">
 
-    </ImageButton>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/FoodName"
-                android:textColor="#272727"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                >
+      <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:minWidth="30dp"
+        android:textColor="#272727"
+        android:textSize="18dp"
+        android:textStyle="bold"
 
-            </TextView>
+        app:layout_constraintBottom_toTopOf="@+id/price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_marginTop="6dp"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/price"
-                    android:textColor="#272727"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content">
+      <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:minWidth="30dp"
+        android:textColor="#272727"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
-                </TextView>
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81">
 
-                <ImageButton
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/selected"
-                    android:layout_width="50dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/select"
-                    android:background="@drawable/radius_bg_orange"
-                    >
+        <ImageButton
+          android:id="@+id/subOneButton"
+          android:layout_width="22dp"
+          android:layout_height="22dp"
+          android:background="@drawable/radius_bg_orange"
+          android:src="@drawable/ic_baseline_remove_24" />
 
-                </ImageButton>
-            </LinearLayout>
+        <TextView
+          android:id="@+id/quantity"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:paddingHorizontal="12dp"
+          android:text="0"
+          android:textSize="17sp" />
 
-        </LinearLayout>
-    </LinearLayout>
+        <ImageButton
+          android:id="@+id/addOneButton"
+          android:layout_width="22dp"
+          android:layout_height="22dp"
+          android:background="@drawable/radius_bg_orange"
+          android:src="@drawable/ic_baseline_add_24" />
+      </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  </LinearLayout>
 
 </layout>

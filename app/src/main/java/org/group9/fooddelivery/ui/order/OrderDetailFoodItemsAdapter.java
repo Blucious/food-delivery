@@ -27,13 +27,13 @@ public class OrderDetailFoodItemsAdapter
     * 保存外部传入的监听器
     */
    private ViewOnClickListener listener;
-   private List<Map<String, Object>> Foods;
+   private List<Map<String, Object>> foods;
 
 
    public OrderDetailFoodItemsAdapter(Activity activity, List<Map<String, Object>> foods) {
       this.activity = activity;
       layoutInflater = activity.getLayoutInflater();
-      this.Foods = foods;
+      this.foods = foods;
    }
 
 
@@ -47,16 +47,16 @@ public class OrderDetailFoodItemsAdapter
 
    @Override
    public int getItemCount() {
-      return Foods.size();
+      return foods.size();
    }
 
 
    @Override
    public void onBindViewHolder(@NonNull OrderDetailFoodItemsViewHolder holder, int position) {
-      holder.bd.FoodDetail.setImageResource((Integer) Foods.get(position).get("FoodImg"));
-      holder.bd.FoodName.setText((Integer) Foods.get(position).get("FoodName"));
-      holder.bd.price.setText((Integer) Foods.get(position).get("Price"));
-      holder.bd.number.setText((Integer) Foods.get(position).get("number"));
+      holder.bd.foodDetail.setImageResource((Integer) foods.get(position).get("FoodImg"));
+      holder.bd.foodName.setText((Integer) foods.get(position).get("FoodName"));
+      holder.bd.price.setText((Integer) foods.get(position).get("Price"));
+      holder.bd.number.setText((Integer) foods.get(position).get("number"));
 
       holder.bd.getRoot().setOnClickListener(new View.OnClickListener() {
          @Override

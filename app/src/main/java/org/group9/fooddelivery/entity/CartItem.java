@@ -28,6 +28,10 @@ public class CartItem {
    @Min(0)
    private Integer quantity;
 
+   public CartItem() {
+      this(null);
+   }
+
    public CartItem(Cart ownerCart) {
       this.ownerCart = ownerCart;
    }

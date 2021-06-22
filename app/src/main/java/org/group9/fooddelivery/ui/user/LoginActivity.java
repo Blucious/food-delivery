@@ -12,7 +12,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityLoginBinding;
 import org.group9.fooddelivery.entity.Result;
 import org.group9.fooddelivery.entity.UserAuthDTO;
@@ -20,17 +20,11 @@ import org.group9.fooddelivery.entity.UserVO;
 import org.group9.fooddelivery.net.CommonCallback;
 import org.group9.fooddelivery.net.CommonJsonResponseHandler;
 import org.group9.fooddelivery.ui.common.NavigableAppCompatActivity;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
 
 import javax.annotation.Nonnull;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.Request;
-import okhttp3.Response;
 
 
 public class LoginActivity extends NavigableAppCompatActivity {
@@ -60,13 +54,12 @@ public class LoginActivity extends NavigableAppCompatActivity {
          if (userDTO.getPassword() == null) {
             userDTO.setPassword("");
          }
-
          FormBody body = new FormBody.Builder()
             .add("email", userDTO.getEmail())
             .add("password", userDTO.getPassword())
             .build();
          Request req = new Request.Builder()
-            .url(ApiContants.apiUrl(ApiContants.api_user_login))
+            .url(ApiConstants.apiUrl(ApiConstants.api_user_login))
             .post(body)
             .build();
 

@@ -41,7 +41,6 @@ public class HomeFragment extends BaseFragment {
 
    public void initView() {
 
-
       // 外送（点餐）按钮
       bd.deliveryButton.setOnClickListener(v -> {
          Intent intent = new Intent(getContext(), FoodMenuActivity.class);

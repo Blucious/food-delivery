@@ -14,7 +14,7 @@ public class ProductVO {
    private String description;
    private BigDecimal price;
    private Integer remaining;
-   private String picturePath;
+   private String pictureUrl;
 
    private Integer isSpicy;
 
@@ -23,4 +23,6 @@ public class ProductVO {
    private Date createdTime;
    private Date updatedTime;
 
+   // 额外字段
+   private Integer quantity;
 }
