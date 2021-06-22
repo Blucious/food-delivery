@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.alibaba.fastjson.JSONArray;
@@ -61,6 +62,7 @@ public class UserFragment extends BaseFragment {
             getActivity().runOnUiThread(() -> {
 
                User user = ((JSONObject) result.getData()).toJavaObject(User.class);
+               Log.d("TAG", "handle200: "+user);
                binddata(user);
                Log.d("TAG", "handle200: " + user);
 
@@ -92,9 +94,16 @@ public class UserFragment extends BaseFragment {
          @Override
          public void onClick(View v) {
             Intent intent = new Intent(getContext(), UserInfo.class);
-            startActivity(intent);
+            startActivityForResult(intent,1);
          }
       });
    }
 
+   @Override
+   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+      if (resultCode ==1){
+         init();
+      }
+   }
 }

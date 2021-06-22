@@ -14,7 +14,7 @@ public class ApiConstants {
    public static final String api_user_logout = "/api/user/logout";
    public static final String api_user_getCurrentUser = "/api/user/getCurrentUser";
    public static final String api_user_isEmailExists = "/api/user/isEmailExists";
-   public static final String api_user_changeProfile = "/api/user/changeProfile";
+      public static final String api_user_changeProfile = "/api/user/changeProfile";
    public static final String api_user_changePasswordByCurrentPassword = "/api/user/changePasswordByCurrentPassword";
 
    // 收货地址相关
