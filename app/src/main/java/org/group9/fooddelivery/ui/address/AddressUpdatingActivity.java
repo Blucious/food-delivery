@@ -22,7 +22,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityUpdateAddressBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.DeliveryAddressDTO;
@@ -124,7 +124,7 @@ public class AddressUpdatingActivity extends BaseAppCompatActivity {
                         .add("tag",editaddress.getTag())
                         .build();
                 Request req = new Request.Builder()
-                        .url(ApiContants.apiUrl(ApiContants.api_deliveryAddress_updateById))
+                        .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_updateById))
                         .post(body)
                         .build();
 
@@ -207,7 +207,7 @@ public class AddressUpdatingActivity extends BaseAppCompatActivity {
         if (id == R.id.deleteOption)  {
             System.out.println(updateAddressBinding.getAddress().getId());
             Request req = new Request.Builder()
-                    .url(ApiContants.apiUrl(ApiContants.api_deliveryAddress_deleteById+"?id="+updateAddressBinding.getAddress().getId()))
+                    .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_deleteById+"?id="+updateAddressBinding.getAddress().getId()))
                     .build();
 
             CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(AddressUpdatingActivity.this) {

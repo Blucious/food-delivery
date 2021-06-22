@@ -2,7 +2,7 @@ package org.group9.fooddelivery.ui.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityUserInfoBinding;
 import org.group9.fooddelivery.entity.Result;
 import org.group9.fooddelivery.entity.User;
@@ -47,7 +47,7 @@ public class UserInfo extends BaseAppCompatActivity {
     }
     public void init() {
         Request req = new Request.Builder()
-                .url(ApiContants.apiUrl(ApiContants.api_user_getCurrentUser))
+                .url(ApiConstants.apiUrl(ApiConstants.api_user_getCurrentUser))
                 .build();
         CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(UserInfo.this) {
             @Override

@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import org.apache.commons.lang3.StringUtils;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityAddressAddingBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.Result;
@@ -101,7 +101,7 @@ public class AddressAddingActivity extends BaseAppCompatActivity {
                     .add("tag",deliveryAddress.getTag())
                     .build();
             Request req = new Request.Builder()
-                    .url(ApiContants.apiUrl(ApiContants.api_deliveryAddress_save))
+                    .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_save))
                     .post(body)
                     .build();
 

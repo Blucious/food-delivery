@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 /**
  * API相关常量定义
  */
-public class ApiContants {
+public class ApiConstants {
    public static final String server_url = "http://10.0.2.2:8080";
 
    // 用户相关

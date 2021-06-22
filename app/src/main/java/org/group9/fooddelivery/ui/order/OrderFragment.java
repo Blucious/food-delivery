@@ -16,7 +16,7 @@ import com.alibaba.fastjson.JSONArray;
 
 import org.group9.fooddelivery.MainActivity;
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.FragmentOrderBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.Order;
@@ -78,7 +78,7 @@ public class OrderFragment extends BaseFragment {
       }
 
       Request req = new Request.Builder()
-              .url(ApiContants.apiUrl(ApiContants.api_order_OrderListItemById+"?userId="+ userId))
+              .url(ApiConstants.apiUrl(ApiConstants.api_order_OrderListItemById+"?userId="+ userId))
               .build();
       CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(getActivity()) {
          @Override

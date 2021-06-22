@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.FragmentUserBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.Result;
@@ -53,7 +53,7 @@ public class UserFragment extends BaseFragment {
 
    public void init() {
       Request req = new Request.Builder()
-              .url(ApiContants.apiUrl(ApiContants.api_user_getCurrentUser))
+              .url(ApiConstants.apiUrl(ApiConstants.api_user_getCurrentUser))
               .build();
       CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(getActivity()) {
          @Override

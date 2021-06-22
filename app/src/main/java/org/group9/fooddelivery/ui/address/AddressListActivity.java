@@ -14,7 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import org.group9.fooddelivery.R;
-import org.group9.fooddelivery.context.ApiContants;
+import org.group9.fooddelivery.context.ApiConstants;
 import org.group9.fooddelivery.databinding.ActivityAddressListBinding;
 import org.group9.fooddelivery.entity.DeliveryAddress;
 import org.group9.fooddelivery.entity.DeliveryAddressDTO;
@@ -68,7 +68,7 @@ public class AddressListActivity extends NavigableAppCompatActivity {
    public void init() throws IOException {
 
       Request req = new Request.Builder()
-              .url(ApiContants.apiUrl(ApiContants.api_deliveryAddress_listForCurrentUser))
+              .url(ApiConstants.apiUrl(ApiConstants.api_deliveryAddress_listForCurrentUser))
               .build();
       CommonJsonResponseHandler responseHandler = new CommonJsonResponseHandler(AddressListActivity.this) {
          @Override
